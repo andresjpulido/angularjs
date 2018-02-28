@@ -23,13 +23,29 @@
     </div>
 </form>
 
-<table>
+<table ng-show="billList.length > 0">
+   <th>
+       <td>Evento</td>
+       <td>Ciudad</td>
+       <td>Punto de venta</td> 
+       <td>Codigo barras</td>
+       <td>Nombre cliente</td>
+       <td>Apellido cliente</td>
+       <td>Identificacion</td>
+       <td>Fecha</td>
+   </th>
     <tr ng-repeat="x in billList">
-        <td ng-if="$even">{{ x.id }}</td>
-        <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.client.firstName }}</td>
-        <td ng-if="$even">{{ x.client.lastName }}</td>
-        <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.client.email }}</td>
+        <td ng-if="$even">{{ x.eventId }}</td>
+        <td ng-if="$odd" style="background-color:#f1f1f1">{{x.cityId}}</td>
+        <td ng-if="$even">{{ x.pointSaleId}}</td>
+        <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.barcode}}</td>
+        <td ng-if="$even">{{ x.client.firstName}}</td>
+        <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.client.lastName }}</td>
+        <td ng-if="$even">{{ x.client.identification }}</td>
+        <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.creationDate }}</td>        
         <td ng-if="$even">{{ x.Country }}</td>
-        <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.creationDate }}</td>
+        <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.creationDate }}</td>       
+        <td ng-if="$even">{{ x.Country }}</td>
+        <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.creationDate }}</td>       
     </tr>
 </table> 
