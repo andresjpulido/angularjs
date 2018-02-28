@@ -10,7 +10,9 @@
     function NavbarController($location,UserService, $rootScope) {
         var vm = this;
         // vm.updatenav = updatenav;
-        $rootScope.username = $rootScope.globals.currentUser.username;
+        if($rootScope.globals.currentUser){
+            $rootScope.username = $rootScope.globals.currentUser.username;
+        }
         
         console.log("vm.username " + $rootScope.username);
         
