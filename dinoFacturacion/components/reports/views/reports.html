@@ -1,0 +1,33 @@
+<h1>Reportes</h1>
+<form>
+    <div class="form-group row">
+        <label for="staticIdentification" class="col-sm-3 col-form-label">Documento</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="staticIdentification" placeholder="Documento">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputPassword" class="col-sm-3 col-form-label">Apellidos</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="inputPassword" placeholder="Apellidos">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="staticEmail" class="col-sm-3 col-form-label">Correo electr&oacute;nico</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="staticEmail" placeholder="correo@correo.com">
+        </div>
+    </div>
+    <div class="form-group row">
+        <button type="button" class="btn btn-primary">Buscar</button>
+    </div>
+</form>
+
+<table>
+<tr ng-repeat="x in billList">
+<td ng-if="$odd" style="background-color:#f1f1f1">{{ x.Name }}</td>
+<td ng-if="$even">{{ x.Name }}</td>
+<td ng-if="$odd" style="background-color:#f1f1f1">{{ x.Country }}</td>
+<td ng-if="$even">{{ x.Country }}</td>
+</tr>
+</table> 

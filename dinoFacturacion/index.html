@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <title>DinoFacturacion</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="app-content/app.css" rel="stylesheet" />
+        <style>
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            @page {
+                margin: 0;top: 0;left: 0;
+            }
+            
+            .print-content * {
+                visibility: visible;
+                overflow: visible;
+            }
+
+            #mainPage * {
+                display: none;
+            }
+
+            .modal {
+                position: absolute;
+                left: 0;
+                top: 0;
+                margin: 0;
+                padding: 0;
+                min-height: 550px;
+                visibility: visible;
+                /**Remove scrollbar for printing.**/
+                overflow: visible !important;
+            }
+
+            .modal-dialog {
+                visibility: visible !important;
+                /**Remove scrollbar for printing.**/
+                overflow: visible !important;
+                 
+            }
+
+            li {
+                page-break-after: auto;
+            }
+            .onPrint {
+                display:none;
+            }
+            
+            header, footer, nav, aside {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body> 
+    <header>
+       
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" ng-show="true" ng-controller="NavbarController"> 
+        <a class="navbar-brand" href="#">DinoFacturacion</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li ng-repeat="opt in navNodes" ng-class="opt.selected?'nav-item active':'nav-item'">
+                <a ng-click="$event.preventDefault();cosa(opt.id)" class="nav-link" href="javascript:void(0)"  >{{opt.title}}</a>
+            </li> 
+          </ul>
+          <a href="#!/login" class="btn btn-primary" ng-show="{{username}}">Salir</a>{{username}}
+        </div> 
+      </nav>
+    </header>
+   
+   <main role="main" class="container">
+    <div class="jumbotron">
+        <div class="container">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+                <div ng-view></div>
+            </div>
+        </div>
+    </div>
+    
+    </main>
+    
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">DinoFacturacion 2018</span>
+      </div>
+    </footer>
+
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="//code.angularjs.org/1.6.0/angular.min.js"></script>
+    <script src="//code.angularjs.org/1.6.0/angular-route.min.js"></script>
+    <script src="//code.angularjs.org/1.6.0/angular-cookies.min.js"></script>
+
+       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="http://getbootstrap.com/assets/js/vendor/popper.min.js"></script>
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://rawgit.com/isonet/angular-barcode/master/dist/angular-barcode.js"></script>
+    
+    <script src="app.js"></script>
+    <script src="shared/services/app-services/authentication.service.js"></script>
+    <script src="shared/services/app-services/flash.service.js"></script>
+<!--    <script src="shared/services/billing/billingService.js"></script>-->
+    
+    <script src="shared/services/billing/billing.local-storage.js"></script>
+    <script src="shared/services/app-services/user.local-storage.js"></script>
+   
+    <!-- Real user service that uses an api -->
+    <!-- <script src="app-services/user.service.js"></script> -->
+ 
+    <script src="components/home/controllers/home.js"></script>
+    <script src="components/login/controllers/login.js"></script>
+    <script src="components/register/controllers/register.js"></script>
+    <script src="components/navbar/controllers/navbar.js"></script>
+    <script src="components/billing/controllers/billing.js"></script>
+    <script src="components/billing/controllers/bill.js"></script>
+    <script src="components/billing/controllers/billList.js"></script>
+    <script src="components/reports/controllers/reports.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,74 @@
+<h1>Generar factura</h1>
+<form name="form" ng-submit="vm.billing()" role="form">
+    <div class="form-group row">
+        <label for="staticEmail" class="col-sm-3 col-form-label">Nombres</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="staticName" placeholder="Nombres" ng-model="vm.bill.client.firstName">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputPassword" class="col-sm-3 col-form-label">Apellidos</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="inputPassword" placeholder="Apellidos" ng-model="vm.bill.client.lastName">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="staticIdentification" class="col-sm-3 col-form-label">Documento</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="staticIdentification" placeholder="Documento" ng-model="vm.bill.client.identification">
+        </div>
+    </div>    
+    <div class="form-group row">
+        <label for="staticEmail" class="col-sm-3 col-form-label">Correo electr&oacute;nico</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="staticEmail" placeholder="correo@correo.com" ng-model="vm.bill.client.email">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="pointSaleSelect" class="col-sm-3 col-form-label">Punto de venta</label>
+        <div class="col-sm-9">
+             <select class="form-control" id="pointSaleSelect" ng-model="vm.bill.pointSaleId">
+              <option value="1">Centro Andino</option>
+              <option value="2">Centro comercial Galerias</option>
+              <option value="3">Centro Comercial Gran Estacion</option>
+              <option value="4">Centro Comercial Plaza de las Americas</option> 
+              <option value="5">Salitre Plaza</option>
+            </select>
+        </div>
+    </div>    
+    <div class="form-group row">
+        <label for="pointSaleSelect" class="col-sm-3 col-form-label">Ciudad</label>
+        <div class="col-sm-9">
+             <select class="form-control" id="citySelect"  ng-model="vm.bill.cityId">
+              <option value="1">Bogota</option>
+              <option value="2">Cartagena</option> 
+              <option value="3">Medellin</option>              
+            </select>
+        </div>
+    </div>     
+    <div class="form-actions">
+        <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Procesar</button>
+        <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+    </div>    
+</form>
+         
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog print-content" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close onPrint" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel"></h4>
+                    </div>
+                    <div class="modal-body">
+                       {{vm.bill.event.title}}
+                         
+                        <angular-barcode ng-model="vm.bill.barcode" bc-options="opciones" bc-class="barcode" bc-type="svg"></angular-barcode>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default onPrint" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary onPrint" data-ng-click="onprint()">Imprimir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
