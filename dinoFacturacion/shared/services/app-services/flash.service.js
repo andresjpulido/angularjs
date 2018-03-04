@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
     'use strict';
 
     angular
@@ -28,7 +28,8 @@
                         delete $rootScope.flash;
                     } else {
                         // only keep for a single location change
-                        flash.keepAfterLocationChange = false;
+                        flash.keepAfterLocationChange = false; 
+                        delete $rootScope.flash;
                     }
                 }
             }

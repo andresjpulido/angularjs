@@ -54,7 +54,7 @@
                 .then(function (response) {
                      
                     if (response) {
-                        FlashService.Success('Factura creada exitosamente! ', true);
+                        FlashService.Success('Reporte creado satisfactoriamente! ', true);
                         //$location.path('/login');
                         vm.dataLoading = false;
                         console.log(response);

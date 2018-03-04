@@ -1,23 +1,6 @@
 <h1>Historial de facturas</h1>
 <form ng-submit="vm.find()" role="form">
-    <div class="form-group row">
-        <label for="staticIdentification" class="col-sm-3 col-form-label">Documento</label>
-        <div class="col-sm-9">
-            <input type="text" class="form-control" id="staticIdentification" placeholder="Documento">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="inputPassword" class="col-sm-3 col-form-label">Apellidos</label>
-        <div class="col-sm-9">
-            <input type="text" class="form-control" id="inputPassword" placeholder="Apellidos">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="staticEmail" class="col-sm-3 col-form-label">Correo electr&oacute;nico</label>
-        <div class="col-sm-9">
-            <input type="text" class="form-control" id="staticEmail" placeholder="correo@correo.com">
-        </div>
-    </div>
+ 
     <div class="form-group row">
         <button type="button" class="btn btn-primary" csv-header="getDataHeader()" filename="reporte.csv" field-separator="," ng-csv="billList">Buscar</button>
     </div>

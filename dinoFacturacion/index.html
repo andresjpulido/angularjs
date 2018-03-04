@@ -66,11 +66,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
-            <li ng-repeat="opt in navNodes" ng-class="opt.selected?'nav-item active':'nav-item'">
+            <li ng-repeat="opt in navNodes" ng-class="opt.selected?'nav-item active':'nav-item'" ng-show="showLogoutBoton()">
                 <a ng-click="$event.preventDefault();cosa(opt.id)" class="nav-link" href="javascript:void(0)"  >{{opt.title}}</a>
             </li> 
           </ul>
-          <a href="#!/login" class="btn btn-primary" ng-show="{{username}}" ng-class="username!=null?'nav-item active':'nav-item'">Salir</a>{{username}}
+          <a href="#!/login" class="btn btn-primary" ng-show="showLogoutBoton()" class="nav-item active">Salir</a>{{globals.currentUser.username}}
         </div> 
       </nav>
     </header>
