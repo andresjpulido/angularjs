@@ -25,6 +25,16 @@
         </div>
     </div>
     <div class="form-group row">
+        <label for="pointSaleSelect" class="col-sm-3 col-form-label">Ciudad</label>
+        <div class="col-sm-9">
+             <select class="form-control" id="citySelect"  ng-model="vm.bill.cityId">
+              <option value="Bogota">Bogota</option>
+              <option value="Cartagena">Cartagena</option> 
+              <option value="Medellin">Medellin</option>              
+            </select>
+        </div>
+    </div>  
+    <div class="form-group row">
         <label for="pointSaleSelect" class="col-sm-3 col-form-label">Punto de venta</label>
         <div class="col-sm-9">
              <select class="form-control" id="pointSaleSelect" ng-model="vm.bill.pointSaleId">
@@ -33,16 +43,6 @@
               <option value="Centro Comercial Gran Estacion">Centro Comercial Gran Estacion</option>
               <option value="Centro Comercial Plaza de las Americas">Centro Comercial Plaza de las Americas</option> 
               <option value="Salitre Plaza">Salitre Plaza</option>
-            </select>
-        </div>
-    </div>    
-    <div class="form-group row">
-        <label for="pointSaleSelect" class="col-sm-3 col-form-label">Ciudad</label>
-        <div class="col-sm-9">
-             <select class="form-control" id="citySelect"  ng-model="vm.bill.cityId">
-              <option value="Bogota">Bogota</option>
-              <option value="Cartagena">Cartagena</option> 
-              <option value="Medellin">Medellin</option>              
             </select>
         </div>
     </div>   

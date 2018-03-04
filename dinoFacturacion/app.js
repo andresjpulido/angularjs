@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app', ['ngRoute', 'ngCookies', 'angular-barcode'])
+        .module('app', ['ngRoute', 'ngCookies', 'angular-barcode','ngCsv'])
         .config(config)
         .run(run);
 

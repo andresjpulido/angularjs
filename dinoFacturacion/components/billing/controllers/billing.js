@@ -18,6 +18,9 @@
             vm.bill.barcode = guid();
             vm.bill.event = {}
             vm.bill.event.title = "Parque de dinosaurios"
+            vm.bill.seller = {}
+            vm.bill.seller.username = $rootScope.globals.currentUser.username;
+            vm.bill.seller.id = "w2"
             
             vm.find = find;    
             vm.billList = []; 
